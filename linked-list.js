@@ -163,6 +163,40 @@ export const LinkedList = function () {
     return listString;
   }
 
+  function getKeys() {
+    if (
+      listHead.key === null &&
+      listHead.value === null &&
+      listHead.nextNode === null
+    )
+      return null;
+    let tmp = listHead;
+    let list = [];
+    while (tmp.nextNode !== null) {
+      list.push(tmp.key);
+      tmp = tmp.nextNode;
+    }
+    list.push(tmp.key);
+    return list;
+  }
+
+  function getValues() {
+    if (
+      listHead.key === null &&
+      listHead.value === null &&
+      listHead.nextNode === null
+    )
+      return null;
+    let tmp = listHead;
+    let list = [];
+    while (tmp.nextNode !== null) {
+      list.push(tmp.value);
+      tmp = tmp.nextNode;
+    }
+    list.push(tmp.value);
+    return list;
+  }
+
   function getNodes() {
     if (
       listHead.key === null &&
@@ -279,6 +313,8 @@ export const LinkedList = function () {
     findIndex,
     find,
     toString,
+    getKeys,
+    getValues,
     getNodes,
     insertAt,
     removeAt,

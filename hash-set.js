@@ -92,11 +92,9 @@ export const HashSet = function () {
     let keysArray = [];
     hashTable.forEach((bucket) => {
       if (bucket) {
-        const bucketKeys = bucket.getNodes();
+        const bucketKeys = bucket.getKeys();
         if (bucketKeys) {
-          bucketKeys.forEach((node) => {
-            keysArray.push(node[0]);
-          });
+          keysArray = keysArray.concat(bucketKeys);
         }
       }
     });

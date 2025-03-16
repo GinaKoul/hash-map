@@ -94,11 +94,9 @@ export const HashMap = function () {
     let keysArray = [];
     hashTable.forEach((bucket) => {
       if (bucket) {
-        const bucketKeys = bucket.getNodes();
+        const bucketKeys = bucket.getKeys();
         if (bucketKeys) {
-          bucketKeys.forEach((node) => {
-            keysArray.push(node[0]);
-          });
+          keysArray = keysArray.concat(bucketKeys);
         }
       }
     });
@@ -109,11 +107,9 @@ export const HashMap = function () {
     let valuesArray = [];
     hashTable.forEach((bucket) => {
       if (bucket) {
-        const bucketKeys = bucket.getNodes();
+        const bucketKeys = bucket.getValues();
         if (bucketKeys) {
-          bucketKeys.forEach((node) => {
-            valuesArray.push(node[1]);
-          });
+          valuesArray = valuesArray.concat(bucketKeys);
         }
       }
     });
@@ -126,9 +122,7 @@ export const HashMap = function () {
       if (bucket) {
         const bucketKeys = bucket.getNodes();
         if (bucketKeys) {
-          bucketKeys.forEach((node) => {
-            entriesArray.push(node);
-          });
+          entriesArray = entriesArray.concat(bucketKeys);
         }
       }
     });
